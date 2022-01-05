@@ -50,8 +50,8 @@ fun! s:move()
         exe 'norm! 0'
     endif
 endf
-set cursorline
-highlight CursorLine   cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
+
+highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
 "---------------------------------      basic    ---------------------------------
 
 
