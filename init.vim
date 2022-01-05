@@ -12,6 +12,7 @@ call plug#begin()
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
+Plug 'yamatsum/nvim-cursorline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
@@ -49,14 +50,15 @@ fun! s:move()
         exe 'norm! 0'
     endif
 endf
-
+set cursorline
+highlight CursorLine   cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
 "---------------------------------      basic    ---------------------------------
 
 
 "---------------------------------    coc.nvim   ---------------------------------
 
 set shortmess+=c                                       
-set updatetime=100
+set updatetime=300
 nmap <leader>rn <Plug>(coc-rename)
 let g:coc_git_status = 1
 let b:coc_git_status = 1
@@ -147,7 +149,7 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
 noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP text=☛  texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
-sign define vimspectorPC text=   texthl=SpellBad 
+sign define vimspectorPC text=  texthl=SpellBad 
 
 "---------------------------------   vimspector  ---------------------------------
 
