@@ -59,7 +59,7 @@ highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NO
 
 augroup illuminate_augroup
     autocmd!
-    autocmd VimEnter * hi illuminatedCurWord cterm=underline gui=underline
+    autocmd VimEnter * hi illuminatedWord cterm=underline  gui=italic 
 augroup END
 
 "---------------------------------    cilluminate   ---------------------------------
