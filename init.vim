@@ -12,7 +12,7 @@ call plug#begin()
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
-Plug 'yamatsum/nvim-cursorline'
+Plug 'RRethy/vim-illuminate'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
@@ -37,6 +37,7 @@ nnoremap <C-^> :bd<CR>
 hi Pmenu ctermfg=Black ctermbg=gray  
 hi PmenuSel ctermfg=25 ctermbg=15 
 
+
 " ; 行首行尾切换
 nnoremap <silent> ; :call <SID>move()<cr>
 nnoremap 0 %
@@ -54,6 +55,14 @@ endf
 highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
 "---------------------------------      basic    ---------------------------------
 
+"---------------------------------    cilluminate   ---------------------------------
+
+augroup illuminate_augroup
+    autocmd!
+    autocmd VimEnter * hi illuminatedCurWord cterm=underline gui=underline
+augroup END
+
+"---------------------------------    cilluminate   ---------------------------------
 
 "---------------------------------    coc.nvim   ---------------------------------
 
