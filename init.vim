@@ -38,8 +38,8 @@ hi Pmenu ctermfg=Black ctermbg=gray
 hi PmenuSel ctermfg=25 ctermbg=15 
 
 
-" ; 行首行尾切换
-nnoremap <silent> ; :call <SID>move()<cr>
+" - 行首行尾切换
+nnoremap <silent> - :call <SID>move()<cr>
 nnoremap 0 %
 vnoremap 0 %
 fun! s:move()
