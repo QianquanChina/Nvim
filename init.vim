@@ -1,10 +1,11 @@
 set rnu
 set number
 set expandtab
-set softtabstop=4
-set shiftwidth=4
 set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,chinese
+set foldmethod=marker
+set shiftwidth=4
+set softtabstop=4
+set fileencodings =ucs-bom,utf-8,chinese
 
 
 call plug#begin()
@@ -19,8 +20,9 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --en
 
 call plug#end()
  
-
+"--------
 "---------------------------------      basic    ---------------------------------
+"--------
 
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
@@ -52,19 +54,25 @@ fun! s:move()
     endif
 endf
 
-highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
+"set cursorline
+"highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
+
 "---------------------------------      basic    ---------------------------------
 
-"---------------------------------    cilluminate   ---------------------------------
+"--------
+"---------------------------------    cilluminate   ------------------------------
+"--------
 
 augroup illuminate_augroup
     autocmd!
     autocmd VimEnter * hi illuminatedWord cterm=underline  gui=italic 
 augroup END
 
-"---------------------------------    cilluminate   ---------------------------------
+"---------------------------------    cilluminate   ------------------------------
 
+"--------
 "---------------------------------    coc.nvim   ---------------------------------
+"--------
 
 set shortmess+=c                                       
 set updatetime=300
@@ -99,7 +107,9 @@ nmap <silent> gr <Plug>(coc-references)
 "---------------------------------    coc.nvim   ---------------------------------
 
 
+"--------
 "---------------------------------    airline    ---------------------------------
+"--------
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -114,7 +124,10 @@ endif
 "---------------------------------    airline    ---------------------------------
 
 
+"--------
 "---------------------------------    rainbow    ---------------------------------
+"--------
+
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -143,7 +156,9 @@ let g:rainbow_conf = {
 "---------------------------------    rainbow    ---------------------------------
 
 
+"--------
 "---------------------------------   vimspector  ---------------------------------
+"--------
  
 let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
