@@ -19,7 +19,18 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
 
 call plug#end()
+
+"--------
+"---------------------------------      Packer插件管理    ---------------------------------
+"--------
  
+lua require('plugins')
+lua require('plugin-config/nvim-treesitter')
+
+"--------
+"---------------------------------      Packer插件管理    ---------------------------------
+"--------
+
 "--------
 "---------------------------------      basic    ---------------------------------
 "--------
