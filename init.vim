@@ -23,7 +23,7 @@ call plug#end()
 "--------
 "---------------------------------      Packer插件管理    ---------------------------------
 "--------
- 
+
 lua require('plugins')
 lua require('plugin-config/nvim-treesitter')
 
