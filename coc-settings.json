@@ -45,5 +45,25 @@
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.file.column.git.showIgnored": false,
-  "explorer.buffer.showHiddenBuffers": false
+  "explorer.buffer.showHiddenBuffers": false,
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterDelete",
+  "explorer.filename.colored.enable": false,
+  "explorer.git.showIgnored": false,
+  "explorer.git.icon.status.mixed": "*",
+  "explorer.git.icon.status.modified": "~",
+  "explorer.git.icon.status.added": "+",
+  "explorer.git.icon.status.deleted": "-",
+  "explorer.git.icon.status.renamed": "+",
+  "explorer.git.icon.status.copied": "+",
+  "explorer.git.icon.status.unmerged": "!",
+  "explorer.git.icon.status.untracked": "?",
+  "explorer.git.icon.status.ignored": " ",
+  "git.showCommitInFloating": true,
+  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToBufferVar": true
+
 }

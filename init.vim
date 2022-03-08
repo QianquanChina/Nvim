@@ -5,6 +5,7 @@ set encoding=utf-8
 set foldmethod=marker
 set shiftwidth=4
 set softtabstop=4
+set scrolloff=5
 set fileencodings =ucs-bom,utf-8,chinese
 
 
@@ -16,6 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'RRethy/vim-illuminate'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
 
 call plug#end()
@@ -49,7 +51,7 @@ nnoremap <C-^> :bd<CR>
 
 hi Pmenu ctermfg=Black ctermbg=gray  
 hi PmenuSel ctermfg=25 ctermbg=15 
-
+hi SignColumn ctermbg=None
 
 " - 行首行尾切换
 nnoremap <silent> - :call <SID>move()<cr>
@@ -69,6 +71,16 @@ endf
 "highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
 
 "---------------------------------      basic    ---------------------------------
+
+"--------
+"---------------------------------      markdown    -------------------------------
+"--------
+
+let g:mkdp_auto_start  =  1
+
+"--------
+"---------------------------------      markdown    -------------------------------
+"--------
 
 "--------
 "---------------------------------    cilluminate   ------------------------------
