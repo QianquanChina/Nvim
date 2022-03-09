@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["nvim-lines.lua"] = {
+    loaded = true,
+    path = "/home/jc/.local/share/nvim/site/pack/packer/start/nvim-lines.lua",
+    url = "https://github.com/yaocccc/nvim-lines.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/jc/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

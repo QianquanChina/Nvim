@@ -13,7 +13,6 @@ call plug#begin()
 
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
 Plug 'RRethy/vim-illuminate'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,7 +27,8 @@ call plug#end()
 
 lua require('plugins')
 lua require('plugin-config/nvim-treesitter')
-
+lua require('plugin-config/nvim-lines')
+ 
 "--------
 "---------------------------------      Packer插件管理    ---------------------------------
 "--------
@@ -182,7 +182,8 @@ let g:rainbow_conf = {
 "--------
 "---------------------------------   vimspector  ---------------------------------
 "--------
- 
+
+nmap <silent> <F7> : let &mouse=&mouse=="a"?"":"a"<CR>
 let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
 	" has to be a function to avoid the extra space fzf#run insers otherwise
@@ -196,8 +197,8 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
 noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP text=☛  texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
-sign define vimspectorPC text=  texthl=SpellBad 
-
+sign define vimspectorPC text=↷  texthl=SpellBad 
+ 
 "---------------------------------   vimspector  ---------------------------------
 
 
