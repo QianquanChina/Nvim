@@ -14,7 +14,6 @@ call plug#begin()
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'RRethy/vim-illuminate'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
@@ -22,7 +21,7 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --en
 call plug#end()
 
 "--------
-"---------------------------------      Packer插件管理    ---------------------------------
+"---------------------------------      Packer插件管理    
 "--------
 
 lua require('plugins')
@@ -30,11 +29,11 @@ lua require('plugin-config/nvim-treesitter')
 lua require('plugin-config/nvim-lines')
  
 "--------
-"---------------------------------      Packer插件管理    ---------------------------------
+"---------------------------------      Packer插件管理    
 "--------
 
 "--------
-"---------------------------------      basic    ---------------------------------
+"---------------------------------      basic    
 "--------
 
 inoremap ( ()<ESC>i
@@ -45,9 +44,12 @@ inoremap " ""<ESC>i
 inoremap jj <ESC>
 let mapleader = " "
 
-nnoremap <C-h> :bp<CR>
-nnoremap <C-l> :bn<CR>
-nnoremap <C-^> :bd<CR>
+nnoremap <silent> <C-h> :bp<CR>
+nnoremap <silent> <C-l> :bn<CR>
+nnoremap <silent> <C-^> :bd<CR>
+inoremap <silent> <C-h> <ESC>:bp<CR>
+inoremap <silent> <C-l> <ESC>:bn<CR>
+inoremap <silent> <C-^> <ESC>:bd<CR>
 
 hi Pmenu ctermfg=Black ctermbg=gray  
 hi PmenuSel ctermfg=25 ctermbg=15 
@@ -70,20 +72,40 @@ endf
 "set cursorline
 "highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
 
-"---------------------------------      basic    ---------------------------------
-
 "--------
-"---------------------------------      markdown    -------------------------------
+"---------------------------------      basic    
 "--------
 
-let g:mkdp_auto_start  =  1
 
 "--------
-"---------------------------------      markdown    -------------------------------
+"---------------------------------      markdown 
+"--------
+
+"autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
+let g:mkdp_auto_start  =  0
+autocmd Filetype markdown nnoremap <C-p> : MarkdownPreviewToggle<CR>
+autocmd Filetype markdown inoremap ;f   <Esc>/<++><CR>:nohlsearch<CR>c4l
+autocmd Filetype markdown inoremap ;n   ---<Enter><Enter>
+autocmd Filetype markdown inoremap ;b   **** <++><Esc>F*hi
+autocmd Filetype markdown inoremap ;s   ~~~~ <++><Esc>F~hi
+autocmd Filetype markdown inoremap ;i   ** <++><Esc>F*i
+autocmd Filetype markdown inoremap ;d   `` <++><Esc>F`i
+autocmd Filetype markdown inoremap ;c   ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
+autocmd Filetype markdown inoremap ;h   ====<Space><++><Esc>F=hi
+autocmd Filetype markdown inoremap ;p   ![](<++>) <++><Esc>F[a
+autocmd Filetype markdown inoremap ;a   [](<++>) <++><Esc>F[a
+autocmd Filetype markdown inoremap ;1   #<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap ;2   ##<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap ;3   ###<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap ;4   ####<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap ;l   --------<Enter>
+
+"--------
+"---------------------------------      markdown
 "--------
 
 "--------
-"---------------------------------    cilluminate   ------------------------------
+"---------------------------------      cilluminate
 "--------
 
 augroup illuminate_augroup
@@ -91,10 +113,12 @@ augroup illuminate_augroup
     autocmd VimEnter * hi illuminatedWord cterm=underline  gui=italic 
 augroup END
 
-"---------------------------------    cilluminate   ------------------------------
+"--------
+"---------------------------------      cilluminate
+"--------
 
 "--------
-"---------------------------------    coc.nvim   ---------------------------------
+"---------------------------------      coc.nvim  
 "--------
 
 set shortmess+=c                                       
@@ -127,11 +151,13 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 
-"---------------------------------    coc.nvim   ---------------------------------
+"--------
+"---------------------------------      coc.nvim   
+"--------
 
 
 "--------
-"---------------------------------    airline    ---------------------------------
+"---------------------------------      airline   
 "--------
 
 let g:airline_powerline_fonts = 1
@@ -144,11 +170,13 @@ if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
 
-"---------------------------------    airline    ---------------------------------
+"--------
+"---------------------------------      airline  
+"--------
 
 
 "--------
-"---------------------------------    rainbow    ---------------------------------
+"---------------------------------      rainbow  
 "--------
 
 let g:rainbow_active = 1
@@ -176,11 +204,13 @@ let g:rainbow_conf = {
 \}
 
 
-"---------------------------------    rainbow    ---------------------------------
+"--------
+"---------------------------------      rainbow  
+"--------
 
 
 "--------
-"---------------------------------   vimspector  ---------------------------------
+"---------------------------------      vimspector  
 "--------
 
 nmap <silent> <F7> : let &mouse=&mouse=="a"?"":"a"<CR>
@@ -195,10 +225,14 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
 			\   'sink': function('<sid>read_template_into_buffer')
 			\})
 noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
-sign define vimspectorBP text=☛  texthl=Normal
-sign define vimspectorBPDisabled text=☞ texthl=Normal
-sign define vimspectorPC text=↷  texthl=SpellBad 
- 
-"---------------------------------   vimspector  ---------------------------------
+sign define vimspectorBP            text=☛   texthl=Normal
+sign define vimspectorBPDisabled    text=☞   texthl=Normal
+sign define vimspectorPC            text=❯❯  texthl=Special  
+sign define vimspectorPCBP          text=●   texthl=WarningMsg 
+sign define vimspectorCurrentThread text=▶   texthl=Special  
+sign define vimspectorCurrentFrame  text=▶   texthl=Special 
+"--------
+"---------------------------------      vimspector 
+"--------
 
 
