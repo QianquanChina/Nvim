@@ -44,6 +44,14 @@ inoremap " ""<ESC>i
 inoremap jj <ESC>
 let mapleader = " "
 
+nnoremap <silent> <leader><pageup>    "+yy
+nnoremap <silent> <leader><pagedown>  "+p
+nnoremap <silent> <leader><left>  :vertical resize -10<CR>
+nnoremap <silent> <leader><right> :vertical resize +10<CR>
+nnoremap <silent> <leader>h <C-w>h
+nnoremap <silent> <leader>j <C-w>j
+nnoremap <silent> <leader>k <C-w>k
+nnoremap <silent> <leader>l <C-w>l
 nnoremap <silent> <C-h> :bp<CR>
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-^> :bd<CR>
@@ -234,5 +242,4 @@ sign define vimspectorCurrentFrame  text=▶   texthl=Special
 "--------
 "---------------------------------      vimspector 
 "--------
-
-
+"

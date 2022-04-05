@@ -64,6 +64,7 @@
   "explorer.git.icon.status.ignored": " ",
   "git.showCommitInFloating": true,
   "git.addGBlameToVirtualText": false,
-  "git.addGBlameToBufferVar": true
+  "git.addGBlameToBufferVar": true,
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
 
 }
