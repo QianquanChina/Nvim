@@ -14,6 +14,7 @@ call plug#begin()
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'RRethy/vim-illuminate'
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
@@ -44,8 +45,10 @@ inoremap " ""<ESC>i
 inoremap jj <ESC>
 let mapleader = " "
 
-nnoremap <silent> <leader><pageup>    "+yy
+vnoremap <silent> <leader><pageup>    "+y
 nnoremap <silent> <leader><pagedown>  "+p
+nnoremap <silent> <leader><up>   :resize -5<CR>
+nnoremap <silent> <leader><down> :resize +5<CR>
 nnoremap <silent> <leader><left>  :vertical resize -10<CR>
 nnoremap <silent> <leader><right> :vertical resize +10<CR>
 nnoremap <silent> <leader>h <C-w>h
@@ -242,4 +245,14 @@ sign define vimspectorCurrentFrame  text=▶   texthl=Special
 "--------
 "---------------------------------      vimspector 
 "--------
-"
+
+"--------
+"---------------------------------      fzf 
+"--------
+
+nnoremap <silent> Rj :Rg<CR>
+nnoremap <silent> Rf :Files<CR>
+
+"--------
+"---------------------------------      fzf 
+"--------
