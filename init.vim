@@ -8,7 +8,6 @@ set softtabstop=4
 set scrolloff=5
 set fileencodings =ucs-bom,utf-8,chinese
 
-
 call plug#begin()
 
 Plug 'luochen1990/rainbow'
@@ -42,29 +41,50 @@ inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
+
 inoremap jj <ESC>
+
 let mapleader = " "
+
+nnoremap <silent> J 5j
+nnoremap <silent> K 5k
+nnoremap <silent> H 5h
+nnoremap <silent> L 5l
+
+vnoremap <silent> J 5j
+vnoremap <silent> K 5k
+vnoremap <silent> H 5h
+vnoremap <silent> L 5l
 
 vnoremap <silent> <leader><pageup>    "+y
 nnoremap <silent> <leader><pagedown>  "+p
+
 nnoremap <silent> <leader><up>   :resize -5<CR>
 nnoremap <silent> <leader><down> :resize +5<CR>
 nnoremap <silent> <leader><left>  :vertical resize -10<CR>
 nnoremap <silent> <leader><right> :vertical resize +10<CR>
+
 nnoremap <silent> <leader>h <C-w>h
 nnoremap <silent> <leader>j <C-w>j
 nnoremap <silent> <leader>k <C-w>k
 nnoremap <silent> <leader>l <C-w>l
+
 nnoremap <silent> <C-h> :bp<CR>
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-^> :bd<CR>
-inoremap <silent> <C-h> <ESC>:bp<CR>
-inoremap <silent> <C-l> <ESC>:bn<CR>
-inoremap <silent> <C-^> <ESC>:bd<CR>
 
+inoremap <silent> <C-h> <left>
+inoremap <silent> <C-l> <right>
+inoremap <silent> <C-k> <up>
+inoremap <silent> <C-j> <down>
+
+set cursorline
 hi Pmenu ctermfg=Black ctermbg=gray  
 hi PmenuSel ctermfg=25 ctermbg=15 
 hi SignColumn ctermbg=None
+hi LineNr term=bold cterm=NONE ctermfg=245 ctermbg=NONE 
+hi CursorLine   cterm=NONE ctermbg=257 ctermfg=NONE 
+hi CursorLineNr term=bold cterm=NONE ctermfg=Green ctermbg=NONE 
 
 " - 行首行尾切换
 nnoremap <silent> - :call <SID>move()<cr>
@@ -80,8 +100,6 @@ fun! s:move()
     endif
 endf
 
-"set cursorline
-"highlight CursorLine  cterm=NONE ctermbg=999999 ctermfg=NONE guibg=NONE guifg=NONE
 
 "--------
 "---------------------------------      basic    
@@ -250,8 +268,8 @@ sign define vimspectorCurrentFrame  text=▶   texthl=Special
 "---------------------------------      fzf 
 "--------
 
-nnoremap <silent> Rj :Rg<CR>
-nnoremap <silent> Rf :Files<CR>
+nnoremap <silent> <leader>r :Rg<CR>
+nnoremap <silent> <leader>f :Files<CR>
 
 "--------
 "---------------------------------      fzf 
