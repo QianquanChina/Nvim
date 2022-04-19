@@ -21,6 +21,7 @@
         "cwd": "${workspaceRoot}",
         "program": "${file}",
         "stopOnEntry": true,
+        "justMyCode":"false",
         "console": "integratedTerminal"
       },
       "breakpoints": {
