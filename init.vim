@@ -14,6 +14,7 @@ Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'RRethy/vim-illuminate'
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
@@ -273,4 +274,16 @@ nnoremap <silent> <leader>f :Files<CR>
 
 "--------
 "---------------------------------      fzf 
+"--------
+
+"--------
+"---------------------------------      gitgutter
+"--------
+
+highlight GitGutterAdd     ctermfg=2
+highlight GitGutterChange  ctermfg=3
+highlight GitGutterDelete  ctermfg=1
+
+"--------
+"---------------------------------      gitgutter
 "--------
