@@ -22,7 +22,7 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --en
 call plug#end()
 
 "--------
-"---------------------------------      Packer插件管理    
+"---------------------------------      Packer插件配置管理    
 "--------
 
 lua require('plugins')
@@ -30,7 +30,7 @@ lua require('plugin-config/nvim-treesitter')
 lua require('plugin-config/nvim-lines')
  
 "--------
-"---------------------------------      Packer插件管理    
+"---------------------------------      Packer插件配置管理    
 "--------
 
 "--------
@@ -83,6 +83,7 @@ set cursorline
 hi Pmenu ctermfg=Black ctermbg=gray  
 hi PmenuSel ctermfg=25 ctermbg=15 
 hi SignColumn ctermbg=None
+hi VertSplit ctermfg=242 ctermbg=NONE cterm=NONE
 hi LineNr term=bold cterm=NONE ctermfg=245 ctermbg=NONE 
 hi CursorLine   cterm=NONE ctermbg=257 ctermfg=NONE 
 hi CursorLineNr term=bold cterm=NONE ctermfg=Green ctermbg=NONE 
