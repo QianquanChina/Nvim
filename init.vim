@@ -260,8 +260,8 @@ sign define vimspectorBP            text=☛   texthl=Normal
 sign define vimspectorBPDisabled    text=☞   texthl=Normal
 sign define vimspectorPC            text=❯❯  texthl=Special  
 sign define vimspectorPCBP          text=●   texthl=WarningMsg 
-sign define vimspectorCurrentThread text=▶   texthl=Special  
-sign define vimspectorCurrentFrame  text=▶   texthl=Special 
+sign define vimspectorCurrentThread text=   texthl=Special  
+sign define vimspectorCurrentFrame  text=ﰉ  texthl=Special 
 "--------
 "---------------------------------      vimspector 
 "--------
