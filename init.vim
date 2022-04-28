@@ -8,12 +8,13 @@ set softtabstop=4
 set scrolloff=5
 set fileencodings =ucs-bom,utf-8,chinese
 
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
+Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'RRethy/vim-illuminate'
-Plug 'junegunn/fzf.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -60,8 +61,8 @@ vnoremap <silent> L 5l
 vnoremap <silent> <leader><pageup>    "+y
 nnoremap <silent> <leader><pagedown>  "+p
 
-nnoremap <silent> <leader><up>   :resize -5<CR>
-nnoremap <silent> <leader><down> :resize +5<CR>
+nnoremap <silent> <leader><up>    :resize -5<CR>
+nnoremap <silent> <leader><down>  :resize +5<CR>
 nnoremap <silent> <leader><left>  :vertical resize -10<CR>
 nnoremap <silent> <leader><right> :vertical resize +10<CR>
 
@@ -79,6 +80,9 @@ inoremap <silent> <C-l> <right>
 inoremap <silent> <C-k> <up>
 inoremap <silent> <C-j> <down>
 
+vnoremap x "_x
+nnoremap x "_x
+
 set cursorline
 hi Pmenu ctermfg=Black ctermbg=gray  
 hi PmenuSel ctermfg=25 ctermbg=15 
@@ -87,6 +91,8 @@ hi VertSplit ctermfg=242 ctermbg=NONE cterm=NONE
 hi LineNr term=bold cterm=NONE ctermfg=245 ctermbg=NONE 
 hi CursorLine   cterm=NONE ctermbg=257 ctermfg=NONE 
 hi CursorLineNr term=bold cterm=NONE ctermfg=Green ctermbg=NONE 
+hi FloatermBorder guibg=NONE guifg=cyan
+hi FloatermNC guibg=gray
 
 " - 行首行尾切换
 nnoremap <silent> - :call <SID>move()<cr>
