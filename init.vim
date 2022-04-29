@@ -11,6 +11,7 @@ set fileencodings =ucs-bom,utf-8,chinese
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-startify'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'RRethy/vim-illuminate'
