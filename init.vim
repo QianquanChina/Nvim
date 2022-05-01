@@ -180,13 +180,13 @@ endfunction
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nmap <silent> <LEADER>p <Plug>(coc-diagnostic-prev)
-nmap <silent> <LEADER>n <Plug>(coc-diagnostic-next)
+noremap <silent> <LEADER>p <Plug>(coc-diagnostic-prev)
+noremap <silent> <LEADER>n <Plug>(coc-diagnostic-next)
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+noremap <silent> gd <Plug>(coc-definition)
+noremap <silent> gy <Plug>(coc-type-definition)
+noremap <silent> gi <Plug>(coc-implementation)
+noremap <silent> gr <Plug>(coc-references)
 
 
 "--------
@@ -251,7 +251,7 @@ let g:rainbow_conf = {
 "---------------------------------      vimspector  
 "--------
 
-nmap <silent> <F7> : let &mouse=&mouse=="a"?"":"a"<CR>
+nnoremap <silent> <F7> : let &mouse=&mouse=="a"?"":"a"<CR>
 let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
 	" has to be a function to avoid the extra space fzf#run insers otherwise
@@ -262,7 +262,7 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
 			\   'down': 20,
 			\   'sink': function('<sid>read_template_into_buffer')
 			\})
-noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
+nnoremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP            text=☛   texthl=Normal
 sign define vimspectorBPDisabled    text=☞   texthl=Normal
 sign define vimspectorPC            text=❯❯  texthl=Special  
@@ -295,3 +295,27 @@ highlight GitGutterDelete  ctermfg=1
 "--------
 "---------------------------------      gitgutter
 "--------
+
+"--------
+"---------------------------------      floaterm
+"--------
+
+"--------
+"---------------------------------      floaterm
+"--------
+nnoremap <silent> <F2> : call CompileRun()<CR>
+
+function! CompileRun()
+
+    if &filetype == 'cpp' 
+
+        :FloatermNew --title=─ --autoclose=0 g++ % -g && ./a.out   
+
+    elseif &filetype == 'python'
+
+        :FloatermNew --title=─ --autoclose=0 python %<.py  
+
+    endif
+
+endfunction
+

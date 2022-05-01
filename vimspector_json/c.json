@@ -5,6 +5,7 @@
             "configuration": {
                 "name": "cpp:launch",
                 "stopAtEntry": true,
+                "justMyCode":"false",
                 "type": "cppdbg",
                 "request": "launch",
                 "program": "${workspaceRoot}/a.out",
@@ -26,6 +27,7 @@
             "configuration": {
                 "name": "cpp:attach",
                 "stopAtEntry": true,
+                "justMyCode":"false",
                 "type": "cppdbg",
                 "request": "attach",
                 "program": "${workspaceRoot}/a.out",
