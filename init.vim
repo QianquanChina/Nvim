@@ -335,7 +335,11 @@ let g:vista_close_on_jump = 0
 let g:vista_disable_statusline = 1
 let g:vista_enable_centering_jump = 1
 let g:vista_top_level_blink = [ 0, 0 ]
-
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\   "prototype": "\uf1fb"
+\  }
 "--------
 "---------------------------------      vista
 "--------
