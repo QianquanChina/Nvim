@@ -13,7 +13,7 @@ end
 
 -- 基于coc的诊断结果展示
 function CocErrCount()
-    local coc_diagnostic_info = vim.b.coc_diagnostic_info or { error = 0, warning=0, hint=0 }
+    local coc_diagnostic_info = vim.b.coc_diagnostic_info or { error = 0, warning = 0, hint = 0 }
     return ( string.format(' E%d ', coc_diagnostic_info.error  ) )
         .. ( string.format('W%d ', coc_diagnostic_info.warning) )
         .. ( string.format('H%d ', coc_diagnostic_info.hint) )

@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
+Plug 'liuchengxu/vista.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
@@ -90,7 +91,7 @@ hi PmenuSel ctermfg=25 ctermbg=15
 hi SignColumn ctermbg=None
 hi VertSplit ctermfg=242 ctermbg=NONE cterm=NONE
 hi LineNr term=bold cterm=NONE ctermfg=245 ctermbg=NONE 
-hi CursorLine   cterm=NONE ctermbg=257 ctermfg=NONE 
+hi CursorLine   cterm=NONE ctermbg=NONE ctermfg=NONE 
 hi CursorLineNr term=bold cterm=NONE ctermfg=Green ctermbg=NONE 
 hi FloatermBorder guibg=NONE guifg=cyan
 hi FloatermNC guibg=gray
@@ -251,6 +252,8 @@ let g:rainbow_conf = {
 "---------------------------------      vimspector  
 "--------
 
+nnoremap <Leader>di <Plug>VimspectorBalloonEval
+vnoremap <Leader>di <Plug>VimspectorBalloonEval
 nnoremap <silent> <F7> : let &mouse=&mouse=="a"?"":"a"<CR>
 let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
@@ -300,10 +303,8 @@ highlight GitGutterDelete  ctermfg=1
 "---------------------------------      floaterm
 "--------
 
-"--------
-"---------------------------------      floaterm
-"--------
 nnoremap <silent> <F2> : call CompileRun()<CR>
+nnoremap <silent> <leader><F2> : FloatermKill<CR>
 
 function! CompileRun()
 
@@ -319,3 +320,22 @@ function! CompileRun()
 
 endfunction
 
+"--------
+"---------------------------------      floaterm
+"--------
+
+"--------
+"---------------------------------      vista
+"--------
+
+nnoremap <silent> <leader>t :Vista!!<CR>
+let g:vista_echo_cursor = 0
+let g:vista_blink = [ 0, 0 ]
+let g:vista_close_on_jump = 0
+let g:vista_disable_statusline = 1
+let g:vista_enable_centering_jump = 1
+let g:vista_top_level_blink = [ 0, 0 ]
+
+"--------
+"---------------------------------      vista
+"--------
