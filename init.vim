@@ -86,8 +86,8 @@ vnoremap x "_x
 nnoremap x "_x
 
 set cursorline
-hi Pmenu ctermfg=Black ctermbg=gray  
-hi PmenuSel ctermfg=25 ctermbg=15 
+hi Pmenu ctermfg=White ctermbg=236  
+hi PmenuSel ctermfg=Black ctermbg=6
 hi SignColumn ctermbg=None
 hi VertSplit ctermfg=242 ctermbg=NONE cterm=NONE
 hi LineNr term=bold cterm=NONE ctermfg=245 ctermbg=NONE 
@@ -331,7 +331,6 @@ endfunction
 nnoremap <silent> <leader>t :Vista!!<CR>
 let g:vista_echo_cursor = 0
 let g:vista_blink = [ 0, 0 ]
-let g:vista_close_on_jump = 0
 let g:vista_disable_statusline = 1
 let g:vista_enable_centering_jump = 1
 let g:vista_top_level_blink = [ 0, 0 ]
@@ -340,6 +339,7 @@ let g:vista#renderer#icons = {
 \   "variable": "\uf71b",
 \   "prototype": "\uf1fb"
 \  }
+
 "--------
 "---------------------------------      vista
 "--------
