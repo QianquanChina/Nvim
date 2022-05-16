@@ -11,6 +11,7 @@ set fileencodings =ucs-bom,utf-8,chinese
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf.vim'
+Plug 'chentoast/marks.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
@@ -30,6 +31,7 @@ call plug#end()
 
 lua require('plugins')
 lua require('plugin-config/nvim-treesitter')
+lua require('plugin-config/nvim-marks')
 lua require('plugin-config/nvim-lines')
  
 "--------
@@ -39,7 +41,7 @@ lua require('plugin-config/nvim-lines')
 "--------
 "---------------------------------      basic    
 "--------
-
+"
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {}<ESC>i
@@ -282,7 +284,7 @@ sign define vimspectorCurrentFrame  text=ﰉ  texthl=Special
 
 nnoremap <silent> <leader>r :Rg<CR>
 nnoremap <silent> <leader>f :Files<CR>
-
+let g:fzf_layout = { 'window' : { 'width' : 0.5, 'height' : 0.6, 'border' : 'sharp' } }
 "--------
 "---------------------------------      fzf 
 "--------
@@ -330,6 +332,7 @@ endfunction
 
 nnoremap <silent> <leader>t :Vista!!<CR>
 let g:vista_echo_cursor = 0
+let g:vista_stay_on_open = 0
 let g:vista_blink = [ 0, 0 ]
 let g:vista_disable_statusline = 1
 let g:vista_enable_centering_jump = 1
@@ -342,4 +345,14 @@ let g:vista#renderer#icons = {
 
 "--------
 "---------------------------------      vista
+"--------
+
+"--------
+"---------------------------------      markers
+"--------
+
+nnoremap dm<space> :delm!<CR> 
+
+"--------
+"---------------------------------      markers
 "--------
