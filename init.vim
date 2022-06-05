@@ -19,6 +19,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
@@ -351,8 +352,19 @@ let g:vista#renderer#icons = {
 "---------------------------------      markers
 "--------
 
-nnoremap dm<space> :delm!<CR> 
+nnoremap <silent> dm<space> :delm!<CR> 
 
 "--------
 "---------------------------------      markers
+"--------
+
+"--------
+"---------------------------------      nerdcommenter
+"--------
+let g:NERDSpaceDelims = 0
+let g:NERDToggleCheckAllLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '//' }, 'py': { 'left': '#' }, }
+"--------
+"---------------------------------      nerdcommenter
 "--------

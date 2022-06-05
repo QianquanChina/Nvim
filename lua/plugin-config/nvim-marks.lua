@@ -2,7 +2,7 @@ require'marks'.setup {
   -- whether to map keybinds or not. default true
   default_mappings = true,
   -- which builtin marks to show. default {}
-  builtin_marks = { ".", "<", ">", "^" },
+  builtin_marks = {},
   -- whether movements cycle back to the beginning/end of buffer. default true
   signs = true,
   cyclic = true,
