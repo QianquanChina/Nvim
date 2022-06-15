@@ -1,5 +1,7 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
+  "notification.border": false,
+  "dialog.rounded": false,
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "suggest.completionItemKindLabels":
@@ -30,7 +32,6 @@
        "value": "\uf89f",
        "variable": "\ue71b"
    },
-  "diagnostic.signOffset": 1,
   "diagnostic.warningSign": " ",
   "diagnostic.errorSign": " ",
   "diagnostic.infoSign": " ",
@@ -46,7 +47,6 @@
   "explorer.file.column.indent.indentLine": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.column.git.showIgnored": false,
   "explorer.buffer.showHiddenBuffers": false,
   "git.addedSign.hlGroup": "GitGutterAdd",
   "git.changedSign.hlGroup": "GitGutterChange",
@@ -67,6 +67,8 @@
   "git.showCommitInFloating": true,
   "git.addGBlameToVirtualText": false,
   "git.addGBlameToBufferVar": true,
+  "clangd.disableProgressNotifications": true,
+  "pyright.disableProgressNotifications": true,
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
 
 }

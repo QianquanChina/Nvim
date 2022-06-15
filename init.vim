@@ -1,20 +1,20 @@
 set rnu
 set number
 set expandtab
-set encoding=utf-8
-set foldmethod=marker
+set scrolloff=5
 set shiftwidth=4
 set softtabstop=4
-set scrolloff=5
+set encoding=utf-8
+set foldmethod=marker
 set fileencodings =ucs-bom,utf-8,chinese
 
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf.vim'
-Plug 'chentoast/marks.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
+Plug 'chentoast/marks.nvim'
 Plug 'liuchengxu/vista.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'voldikss/vim-floaterm'
@@ -31,9 +31,9 @@ call plug#end()
 "--------
 
 lua require('plugins')
-lua require('plugin-config/nvim-treesitter')
-lua require('plugin-config/nvim-marks')
 lua require('plugin-config/nvim-lines')
+lua require('plugin-config/nvim-marks')
+lua require('plugin-config/nvim-treesitter')
  
 "--------
 "---------------------------------      Packer插件配置管理    
@@ -43,15 +43,18 @@ lua require('plugin-config/nvim-lines')
 "---------------------------------      basic    
 "--------
 "
+
+let mapleader = " "
+
+inoremap jj <ESC>
+
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 
-inoremap jj <ESC>
 
-let mapleader = " "
 
 nnoremap <silent> J 5j
 nnoremap <silent> K 5k
@@ -63,19 +66,6 @@ vnoremap <silent> K 5k
 vnoremap <silent> H 5h
 vnoremap <silent> L 5l
 
-vnoremap <silent> <leader><pageup>    "+y
-nnoremap <silent> <leader><pagedown>  "+p
-
-nnoremap <silent> <leader><up>    :resize -5<CR>
-nnoremap <silent> <leader><down>  :resize +5<CR>
-nnoremap <silent> <leader><left>  :vertical resize -10<CR>
-nnoremap <silent> <leader><right> :vertical resize +10<CR>
-
-nnoremap <silent> <leader>h <C-w>h
-nnoremap <silent> <leader>j <C-w>j
-nnoremap <silent> <leader>k <C-w>k
-nnoremap <silent> <leader>l <C-w>l
-
 nnoremap <silent> <C-h> :bp<CR>
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-^> :bd<CR>
@@ -85,19 +75,31 @@ inoremap <silent> <C-l> <right>
 inoremap <silent> <C-k> <up>
 inoremap <silent> <C-j> <down>
 
-vnoremap x "_x
-nnoremap x "_x
+nnoremap <silent> <leader>h <C-w>h
+nnoremap <silent> <leader>j <C-w>j
+nnoremap <silent> <leader>k <C-w>k
+nnoremap <silent> <leader>l <C-w>l
+vnoremap <silent> <leader><pageup>    "+y
+nnoremap <silent> <leader><pagedown>  "+p
 
-set cursorline
+nnoremap <silent> <leader><up>    :resize -5<CR>
+nnoremap <silent> <leader><down>  :resize +5<CR>
+nnoremap <silent> <leader><left>  :vertical resize -10<CR>
+nnoremap <silent> <leader><right> :vertical resize +10<CR>
+
 hi Pmenu ctermfg=White ctermbg=236  
 hi PmenuSel ctermfg=Black ctermbg=6
+
+set cursorline
 hi SignColumn ctermbg=None
 hi VertSplit ctermfg=242 ctermbg=NONE cterm=NONE
 hi LineNr term=bold cterm=NONE ctermfg=245 ctermbg=NONE 
+
 hi CursorLine   cterm=NONE ctermbg=NONE ctermfg=NONE 
 hi CursorLineNr term=bold cterm=NONE ctermfg=Green ctermbg=NONE 
-hi FloatermBorder guibg=NONE guifg=cyan
+
 hi FloatermNC guibg=gray
+hi FloatermBorder guibg=NONE guifg=cyan
 
 " - 行首行尾切换
 nnoremap <silent> - :call <SID>move()<cr>
@@ -361,10 +363,12 @@ nnoremap <silent> dm<space> :delm!<CR>
 "--------
 "---------------------------------      nerdcommenter
 "--------
+
 let g:NERDSpaceDelims = 0
 let g:NERDToggleCheckAllLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDCustomDelimiters = { 'c': { 'left': '//' }, 'py': { 'left': '#' }, }
+
 "--------
 "---------------------------------      nerdcommenter
 "--------
