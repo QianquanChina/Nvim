@@ -1,12 +1,15 @@
-return require('packer').startup(function()
+return require('packer').startup(
 
-    use 'yaocccc/nvim-lines.lua'
+    function()
 
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-    
-    -- treesitter 高亮
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',  }
+        use 'yaocccc/nvim-lines.lua'
+
+        -- Packer can manage itself
+        use 'wbthomason/packer.nvim'
+        
+        -- treesitter 高亮
+        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',  }
 
 
-end)
+    end
+)

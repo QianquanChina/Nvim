@@ -1,9 +1,11 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
   "notification.border": false,
-  "dialog.rounded": false,
+  "dialog.rounded":false,
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
+  "suggest.floatConfig":{ "border":false },
+
   "suggest.completionItemKindLabels":
   {
        "class": "\uf0e8",
@@ -69,6 +71,7 @@
   "git.addGBlameToBufferVar": true,
   "clangd.disableProgressNotifications": true,
   "pyright.disableProgressNotifications": true,
+  "notification.disabledProgressSources": ["*"],
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
 
 }

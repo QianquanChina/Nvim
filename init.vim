@@ -6,6 +6,7 @@ set shiftwidth=4
 set softtabstop=4
 set encoding=utf-8
 set foldmethod=marker
+set listchars=tab:>-,trail:▫
 set fileencodings =ucs-bom,utf-8,chinese
 
 call plug#begin('~/.config/nvim/plugged')
@@ -21,6 +22,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --enable-c'}
 
@@ -34,7 +36,7 @@ lua require('plugins')
 lua require('plugin-config/nvim-lines')
 lua require('plugin-config/nvim-marks')
 lua require('plugin-config/nvim-treesitter')
- 
+
 "--------
 "---------------------------------      Packer插件配置管理    
 "--------
@@ -46,15 +48,11 @@ lua require('plugin-config/nvim-treesitter')
 
 let mapleader = " "
 
-inoremap jj <ESC>
-
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
-
-
 
 nnoremap <silent> J 5j
 nnoremap <silent> K 5k
@@ -66,40 +64,31 @@ vnoremap <silent> K 5k
 vnoremap <silent> H 5h
 vnoremap <silent> L 5l
 
+vnoremap <silent> <tab>   >gv
+vnoremap <silent> <s-tab> <gv
+
 nnoremap <silent> <C-h> :bp<CR>
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-^> :bd<CR>
 
-inoremap <silent> <C-h> <left>
-inoremap <silent> <C-l> <right>
 inoremap <silent> <C-k> <up>
 inoremap <silent> <C-j> <down>
+inoremap <silent> <C-h> <left>
+inoremap <silent> <C-l> <right>
 
 nnoremap <silent> <leader>h <C-w>h
 nnoremap <silent> <leader>j <C-w>j
 nnoremap <silent> <leader>k <C-w>k
 nnoremap <silent> <leader>l <C-w>l
-vnoremap <silent> <leader><pageup>    "+y
-nnoremap <silent> <leader><pagedown>  "+p
+vnoremap <silent> <leader><PageUp>   "+y
+nnoremap <silent> <leader><PageDown> "+p
 
 nnoremap <silent> <leader><up>    :resize -5<CR>
 nnoremap <silent> <leader><down>  :resize +5<CR>
 nnoremap <silent> <leader><left>  :vertical resize -10<CR>
 nnoremap <silent> <leader><right> :vertical resize +10<CR>
 
-hi Pmenu ctermfg=White ctermbg=236  
-hi PmenuSel ctermfg=Black ctermbg=6
-
-set cursorline
-hi SignColumn ctermbg=None
-hi VertSplit ctermfg=242 ctermbg=NONE cterm=NONE
-hi LineNr term=bold cterm=NONE ctermfg=245 ctermbg=NONE 
-
-hi CursorLine   cterm=NONE ctermbg=NONE ctermfg=NONE 
-hi CursorLineNr term=bold cterm=NONE ctermfg=Green ctermbg=NONE 
-
-hi FloatermNC guibg=gray
-hi FloatermBorder guibg=NONE guifg=cyan
+colorscheme mycolors
 
 " - 行首行尾切换
 nnoremap <silent> - :call <SID>move()<cr>
@@ -114,7 +103,6 @@ fun! s:move()
         exe 'norm! 0'
     endif
 endf
-
 
 "--------
 "---------------------------------      basic    
@@ -154,7 +142,7 @@ autocmd Filetype markdown inoremap ;l   --------<Enter>
 
 augroup illuminate_augroup
     autocmd!
-    autocmd VimEnter * hi illuminatedWord cterm=underline  gui=italic 
+    autocmd VimEnter * hi illuminatedWord cterm=underline  gui=italic
 augroup END
 
 "--------
@@ -165,12 +153,14 @@ augroup END
 "---------------------------------      coc.nvim  
 "--------
 
+hi! link CocPum Pmenu
+hi! link CocMenuSel PmenuSel
 set shortmess+=c                                       
 set updatetime=300
 nmap <leader>rn <Plug>(coc-rename)
 let g:coc_git_status = 1
 let b:coc_git_status = 1
-
+inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "<TAB>" 
 nnoremap tt :CocCommand explorer<CR>
 
 inoremap <silent><expr> <TAB>
@@ -194,7 +184,19 @@ noremap <silent> gy <Plug>(coc-type-definition)
 noremap <silent> gi <Plug>(coc-implementation)
 noremap <silent> gr <Plug>(coc-references)
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
+" Insert <tab> when previous text is space, refresh completion if not.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "--------
 "---------------------------------      coc.nvim   
 "--------
@@ -205,8 +207,8 @@ noremap <silent> gr <Plug>(coc-references)
 "--------
 
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#keymap#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
@@ -276,7 +278,8 @@ sign define vimspectorBPDisabled    text=☞   texthl=Normal
 sign define vimspectorPC            text=❯❯  texthl=Special  
 sign define vimspectorPCBP          text=●   texthl=WarningMsg 
 sign define vimspectorCurrentThread text=   texthl=Special  
-sign define vimspectorCurrentFrame  text=ﰉ  texthl=Special 
+sign define vimspectorCurrentFrame  text=ﰉ   texthl=Special 
+
 "--------
 "---------------------------------      vimspector 
 "--------
@@ -371,4 +374,26 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '//' }, 'py': { 'left': '#' }, }
 
 "--------
 "---------------------------------      nerdcommenter
+"--------
+
+"--------
+"---------------------------------      multi
+"--------
+
+let g:VM_theme              = 'ocean'
+let g:VM_maps               = {}
+let g:VM_highlight_matches  = 'underline'
+
+"--------
+"---------------------------------      multi
+"--------
+
+"--------
+"---------------------------------      indentLine
+"--------
+
+let g:indentLine_fileTypeExclude = [ 'startify', 'floaterm' ]
+
+"--------
+"---------------------------------      indentLine
 "--------
