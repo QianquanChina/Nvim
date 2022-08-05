@@ -15,6 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
+Plug 'yaocccc/nvim-hlchunk'
 Plug 'chentoast/marks.nvim'
 Plug 'liuchengxu/vista.vim'
 Plug 'RRethy/vim-illuminate'
@@ -392,8 +393,20 @@ let g:VM_highlight_matches  = 'underline'
 "---------------------------------      indentLine
 "--------
 
-let g:indentLine_fileTypeExclude = [ 'startify', 'floaterm' ]
+let g:indentLine_fileTypeExclude = [ 'startify', 'floaterm', 'cpp' ]
 
 "--------
 "---------------------------------      indentLine
+"--------
+
+"--------
+"---------------------------------      hlchunk
+"--------
+
+autocmd Filetype cpp  set list
+let g:hlchunk_files = '*.json,*.c,*.cpp'
+let g:hlchunk_chars=[ '─', '─', '┌', '│','└', '─', '' ]
+
+"--------
+"---------------------------------      hlchunk
 "--------
