@@ -1,4 +1,4 @@
-{                                                                                                      
+{
     "configurations": {
         "cpp:launch": {
             "adapter": "vscode-cpptools",
@@ -17,11 +17,11 @@
                 "breakpointers": {
                     "exception": {
                         "cpp_throw": "Y",
-                        "cpp_catch": "N" 
-                    }   
-                }   
-            }   
-        },  
+                        "cpp_catch": "N"
+                    }
+                }
+            }
+        },
         "cpp:attach": {
             "adapter": "vscode-cpptools",
             "configuration": {
@@ -35,10 +35,10 @@
                 "breakpointers": {
                     "exception": {
                         "cpp_throw": "Y",
-                        "cpp_catch": "N" 
-                    }   
-                }   
-            }   
-        }   
-    }   
+                        "cpp_catch": "N"
+                    }
+                }
+            }
+        }
+    }
 }

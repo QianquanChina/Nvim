@@ -34,6 +34,7 @@
        "value": "\uf89f",
        "variable": "\ue71b"
    },
+  "diagnostic.enableMessage": "never",
   "diagnostic.warningSign": " ",
   "diagnostic.errorSign": " ",
   "diagnostic.infoSign": " ",

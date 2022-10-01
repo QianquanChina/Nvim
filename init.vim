@@ -1,4 +1,5 @@
 set rnu
+set list
 set number
 set expandtab
 set scrolloff=5
@@ -30,7 +31,7 @@ Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python --en
 call plug#end()
 
 "--------
-"---------------------------------      Packer插件配置管理    
+"---------------------------------      Packer插件配置管理
 "--------
 
 lua require('plugins')
@@ -39,11 +40,11 @@ lua require('plugin-config/nvim-marks')
 lua require('plugin-config/nvim-treesitter')
 
 "--------
-"---------------------------------      Packer插件配置管理    
+"---------------------------------      Packer插件配置管理
 "--------
 
 "--------
-"---------------------------------      basic    
+"---------------------------------      basic
 "--------
 "
 
@@ -106,12 +107,12 @@ fun! s:move()
 endf
 
 "--------
-"---------------------------------      basic    
+"---------------------------------      basic
 "--------
 
 
 "--------
-"---------------------------------      markdown 
+"---------------------------------      markdown
 "--------
 
 "autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
@@ -141,6 +142,7 @@ autocmd Filetype markdown inoremap ;l   --------<Enter>
 "---------------------------------      cilluminate
 "--------
 
+let g:Illuminate_useDeprecated = 1
 augroup illuminate_augroup
     autocmd!
     autocmd VimEnter * hi illuminatedWord cterm=underline  gui=italic
@@ -151,17 +153,17 @@ augroup END
 "--------
 
 "--------
-"---------------------------------      coc.nvim  
+"---------------------------------      coc.nvim
 "--------
 
 hi! link CocPum Pmenu
 hi! link CocMenuSel PmenuSel
-set shortmess+=c                                       
+set shortmess+=c
 set updatetime=300
 nmap <leader>rn <Plug>(coc-rename)
 let g:coc_git_status = 1
 let b:coc_git_status = 1
-inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "<TAB>" 
+inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "<TAB>"
 nnoremap tt :CocCommand explorer<CR>
 
 inoremap <silent><expr> <TAB>
@@ -197,14 +199,14 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "--------
-"---------------------------------      coc.nvim   
+"---------------------------------      coc.nvim
 "--------
 
 
 "--------
-"---------------------------------      airline   
+"---------------------------------      airline
 "--------
 
 let g:airline_powerline_fonts = 1
@@ -218,12 +220,12 @@ let g:airline_symbols = {}
 endif
 
 "--------
-"---------------------------------      airline  
+"---------------------------------      airline
 "--------
 
 
 "--------
-"---------------------------------      rainbow  
+"---------------------------------      rainbow
 "--------
 
 let g:rainbow_active = 1
@@ -252,12 +254,12 @@ let g:rainbow_conf = {
 
 
 "--------
-"---------------------------------      rainbow  
+"---------------------------------      rainbow
 "--------
 
 
 "--------
-"---------------------------------      vimspector  
+"---------------------------------      vimspector
 "--------
 
 nnoremap <Leader>di <Plug>VimspectorBalloonEval
@@ -282,18 +284,18 @@ sign define vimspectorCurrentThread text=   texthl=Special
 sign define vimspectorCurrentFrame  text=ﰉ   texthl=Special 
 
 "--------
-"---------------------------------      vimspector 
+"---------------------------------      vimspector
 "--------
 
 "--------
-"---------------------------------      fzf 
+"---------------------------------      fzf
 "--------
 
 nnoremap <silent> <leader>r :Rg<CR>
 nnoremap <silent> <leader>f :Files<CR>
 let g:fzf_layout = { 'window' : { 'width' : 0.5, 'height' : 0.6, 'border' : 'sharp' } }
 "--------
-"---------------------------------      fzf 
+"---------------------------------      fzf
 "--------
 
 "--------
@@ -393,7 +395,7 @@ let g:VM_highlight_matches  = 'underline'
 "---------------------------------      indentLine
 "--------
 
-let g:indentLine_fileTypeExclude = [ 'startify', 'floaterm', 'cpp' ]
+let g:indentLine_fileTypeExclude = [ 'startify', 'floaterm', 'c', 'cpp', 'json' ]
 
 "--------
 "---------------------------------      indentLine
@@ -403,8 +405,7 @@ let g:indentLine_fileTypeExclude = [ 'startify', 'floaterm', 'cpp' ]
 "---------------------------------      hlchunk
 "--------
 
-autocmd Filetype cpp  set list
-let g:hlchunk_files = '*.json,*.c,*.cpp'
+let g:hlchunk_files = '*.json,*.h,*.c,*.cpp'
 let g:hlchunk_chars=[ '─', '─', '┌', '│','└', '─', '' ]
 
 "--------
