@@ -10,7 +10,7 @@ hi LineNr         cterm=bold ctermfg=245   ctermbg=NONE
 hi CursorLine     cterm=NONE ctermfg=NONE  ctermbg=NONE
 hi CursorLineNr   cterm=bold ctermfg=Green ctermbg=NONE
 
-hi FloatermNC                              guibg=gray
-hi FloatermBorder            guifg=cyan    guibg=NONE
+hi Floaterm                  ctermfg=White ctermbg=NONE
+hi FloatermBorder            ctermfg=White ctermbg=NONE
 hi Whitespace                ctermfg=White ctermbg=NONE
 hi TabLine  ctermfg=235 ctermbg=242 cterm=bold
