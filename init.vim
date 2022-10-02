@@ -1,5 +1,6 @@
 set rnu
 set list
+set mouse=
 set number
 set expandtab
 set scrolloff=5

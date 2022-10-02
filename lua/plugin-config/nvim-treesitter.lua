@@ -8,20 +8,20 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
 
       enable = true,
-      additional_vim_regex_highlighting = true
+      additional_vim_regex_highlighting = false,
 
   },
 
   -- 启用增量选择
   incremental_selection = {
-    
+
     enable  = true,
     keymaps = {
-        
+
         init_selection   = '<CR>',
         node_incremental = '<CR>',
         node_decremental = '<BS>',
-     
+
     }
 
   },
@@ -29,6 +29,9 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- 解决和彩色括号冲突
-require "nvim-treesitter.highlight"
-local hlmap = vim.treesitter.highlighter.hl_map
-hlmap["punctuation.bracket"] = nil
+vim.cmd[[ augroup rainbow]]
+vim.cmd[[ au BufEnter *     hi      TSPunctBracket NONE]]
+vim.cmd[[ au BufEnter *     hi link TSPunctBracket nonexistenthl]]
+vim.cmd[[ au BufEnter *.lua hi      TSConstructor  NONE]]
+vim.cmd[[ au BufEnter *.lua hi link TSConstructor  nonexistenthl]]
+vim.cmd[[ augroup END]]
