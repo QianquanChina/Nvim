@@ -2,7 +2,7 @@ set cursorline
 
 hi Pmenu                     ctermfg=White ctermbg=236
 hi PmenuSel                  ctermfg=Black ctermbg=6
-
+hi Normal                    ctermfg=White ctermbg=NONE
 hi SignColumn                              ctermbg=NONE
 hi VertSplit      cterm=NONE ctermfg=242   ctermbg=NONE
 hi LineNr         cterm=bold ctermfg=245   ctermbg=NONE
