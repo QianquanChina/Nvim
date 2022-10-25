@@ -13,4 +13,5 @@ hi CursorLineNr   cterm=bold ctermfg=Green ctermbg=NONE
 hi Floaterm                  ctermfg=White ctermbg=NONE
 hi FloatermBorder            ctermfg=White ctermbg=NONE
 hi Whitespace                ctermfg=White ctermbg=NONE
-hi TabLine  ctermfg=235 ctermbg=242 cterm=bold
+hi TabLine        cterm=bold ctermfg=235   ctermbg=242
+hi CocFloatActive cterm=underline

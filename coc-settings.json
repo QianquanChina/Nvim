@@ -70,6 +70,8 @@
   "git.showCommitInFloating": true,
   "git.addGBlameToVirtualText": false,
   "git.addGBlameToBufferVar": true,
+  "pyright.inlayHints.variableTypes":false,
+  "pyright.inlayHints.functionReturnTypes":false,
   "clangd.disableProgressNotifications": true,
   "pyright.disableProgressNotifications": true,
   "notification.disabledProgressSources": ["*"],
