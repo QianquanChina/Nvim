@@ -295,7 +295,7 @@ sign define vimspectorCurrentFrame  text=ﰉ   texthl=Special
 nnoremap <silent> <leader>r :Rg<CR>
 nnoremap <silent> <leader>f :Files<CR>
 let g:fzf_layout = { 'window' : { 'width' : 0.5, 'height' : 0.6, 'border' : 'sharp' } }
-let g:fzf_colors = { 'fg':  ['fg', 'Normal' ], 'bg':  ['bg', 'Normal' ] }
+let g:fzf_colors = { 'fg':  ['fg', 'Normal' ], 'bg':  ['bg', 'Normal' ], 'border': [ 'fg', 'Pmenu'] }
 
 "--------
 "---------------------------------      fzf
