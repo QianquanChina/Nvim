@@ -7,7 +7,7 @@ hi SignColumn                              ctermbg=NONE
 hi VertSplit      cterm=NONE ctermfg=242   ctermbg=NONE
 hi LineNr         cterm=bold ctermfg=245   ctermbg=NONE
 
-hi CursorLine     cterm=NONE ctermfg=NONE  ctermbg=NONE
+hi CursorLine     cterm=bold ctermfg=NONE  ctermbg=NONE
 hi CursorLineNr   cterm=bold ctermfg=Green ctermbg=NONE
 
 hi Floaterm                  ctermfg=White ctermbg=NONE
