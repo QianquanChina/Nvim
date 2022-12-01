@@ -6,10 +6,11 @@ return require('packer').startup(
 
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
-        
+
         -- treesitter 高亮
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',  }
 
+        use 'p00f/nvim-ts-rainbow'
 
     end
 )
