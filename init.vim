@@ -9,7 +9,7 @@ set softtabstop=4
 set encoding=utf-8
 set foldmethod=marker
 set listchars=tab:>-,trail:▫
-set fileencodings =ucs-bom,utf-8,chinese
+set fileencodings=ucs-bom,utf-8,chinese
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -224,10 +224,10 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
 nnoremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP            text=☛   texthl=Normal
 sign define vimspectorBPDisabled    text=☞   texthl=Normal
-sign define vimspectorPC            text=❯❯  texthl=Special  
-sign define vimspectorPCBP          text=●   texthl=WarningMsg 
-sign define vimspectorCurrentThread text=   texthl=Special  
-sign define vimspectorCurrentFrame  text=ﰉ   texthl=Special 
+sign define vimspectorPC            text=❯❯  texthl=Special
+sign define vimspectorPCBP          text=●   texthl=WarningMsg
+sign define vimspectorCurrentThread text=   texthl=Special
+sign define vimspectorCurrentFrame  text=ﰉ   texthl=Special
 
 "--------
 "---------------------------------      vimspector
@@ -267,13 +267,13 @@ nnoremap <silent> <leader><F2> : FloatermKill<CR>
 
 function! CompileRun()
 
-    if &filetype == 'cpp' 
+    if &filetype == 'cpp'
 
-        :FloatermNew --title=─ --autoclose=0 g++ % -g && ./a.out   
+        :FloatermNew --title=─ --autoclose=0 g++ % -g && ./a.out
 
     elseif &filetype == 'python'
 
-        :FloatermNew --title=─ --autoclose=0 python %<.py  
+        :FloatermNew --title=─ --autoclose=0 python %<.py
 
     endif
 
